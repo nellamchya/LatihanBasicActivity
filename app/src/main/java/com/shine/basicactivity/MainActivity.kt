@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Setup click listeners for buttons
+        // Setup click listeners for buttons
         val toastButton = findViewById<Button>(R.id.button_first)
         val countButton = findViewById<Button>(R.id.button_second)
         val randomButton = findViewById<Button>(R.id.button_third)
