@@ -9,6 +9,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import com.shine.basicactivity.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -32,18 +36,37 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+        // Setup click listeners for buttons
+        val toastButton = findViewById<Button>(R.id.button_first)
+        val countButton = findViewById<Button>(R.id.button_second)
+        val randomButton = findViewById<Button>(R.id.button_third)
+
+        toastButton.setOnClickListener {
+            val myToast = Toast.makeText(applicationContext, "Hello Toast!", Toast.LENGTH_SHORT)
+            myToast.show()
+        }
+
+        // Initial count value
+        var count = 0
+        val countTextView = findViewById<TextView>(R.id.textview_first)
+
+        countButton.setOnClickListener {
+            count++
+            countTextView.text = count.toString()
+        }
+
+        randomButton.setOnClickListener {
+            // Implement random button action here if needed
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
